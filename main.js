@@ -127,3 +127,18 @@ function shipActions(event) {
         body.appendChild(bullet);
     }
 }
+
+//End game function
+function stopGame(msg){
+    //stopping the intervals
+    clearInterval(animateAliens);
+    clearInterval(moveAliens);
+    clearInterval(animateBullets);
+
+    //remove the event listener
+    body.removeEventListener('keydown', shipActions);
+
+    //display game over msg
+    message.innerHTML = msg;
+    message.style.display = "block";
+}
